@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>First Vue Website</title>
+    <meta name="charset" content="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Yuri Dubler" />
+    <meta name="description" content="First Vue Website" />
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Denk+One&family=Mallanna&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Mallanna&display=swap" rel="stylesheet"> -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand&display=swap"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <body>
+    <div id="vue-view">
+      <h1 v-cloak>{{ appName }}</h1>
+      <h3><u>Vue Instance</u></h3>
+      <pre>
+var view = new Vue({
+  el:'#vue-view',
+  data:{
+      appName:'Basic Vue Project',
+      checkboxOne:false,
+      checkboxTwo:false,
+      list: [{name:"Can of Prickly Pear"},{name:"A Doubleshot Latte"}, {name:"ArcUser Magazine"}],
+      itemName: ''
+  },
+  methods:{
+    addToList: function(){
+      this.list.push({ name:this.itemName});
+    },
+    removeFromList: function(index){
+      this.list.splice(index,1);
+    }
+  }
+});
+          </pre
+      >
+      <h3>
+        <u>Data binding with v-model and conditional rendering with v-if</u>
+      </h3>
+      <div class="inlineblock">
+        <form class="inlineblock">
+          <div class="inlineblock">
+            <input class="inlineblock" type="checkbox" v-model="checkboxOne" />
+          </div>
+        </form>
+        <div v-if="checkboxOne===true" class="inlineblock">
+          First Checkbox Checked
+        </div>
+      </div>
+      <br />
+      <div class="inlineblock">
+        <form class="inlineblock">
+          <div class="inlineblock">
+            <input class="inlineblock" type="checkbox" v-model="checkboxTwo" />
+          </div>
+        </form>
+        <div v-if="checkboxTwo===true" class="inlineblock">
+          Second Checkbox Checked
+        </div>
+      </div>
+      <br />
+      <div>
+        <h3><u>List of Items</u></h3>
+        <input class="text" v-model="itemName" />
+        <button v-on:click="addToList">Add Item ({{ list.length + 1 }})</button>
+        <br />
+        <br />
+        <div v-for="(item,index) in list">
+          <button v-on:click="removeFromList(index)">-</button>
+          <small>{{ index + 1 }}</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
+          item.name }}
+        </div>
+        <br />
+        data.list = {{ list }}
+      </div>
+    </div>
+
+    <!-- Vue Scripts -->
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

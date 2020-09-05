@@ -1,0 +1,19 @@
+body {
+  font-family: "Mallanna", sans-serif;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.inlineblock {
+  display: inline-block;
+}
+
+.fontMallana {
+  font-family: "Mallanna", sans-serif;
+}
+
+.fontDenkOne {
+  font-family: "Denk One", sans-serif;
+}
